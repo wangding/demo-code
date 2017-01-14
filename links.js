@@ -9,12 +9,10 @@ http.get(url, function (res) {
     res.setEncoding('utf-8');
     res.on('data', function (data) {
         html += data;
-        console.log('--------------get some thing');
-        console.log(data);
     });
 
-    res.on('end', function (data) {
-        console.log('end');
+    res.on('end', function () {
+        console.log(html);
     });
 }).on('error', function () {
     console.log('发生错误了！');

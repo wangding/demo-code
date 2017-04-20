@@ -3,7 +3,7 @@ var expect = require('chai').expect;
 
 describe('unit test of multiply', function() {
   it('0*0 = 0', function() {
-    expect(multiply(0, 0).to.be.equal(0));
+    expect(multiply(0, 0)).to.be.equal(0);
   });
 
   it('1*1 = 1', function() {

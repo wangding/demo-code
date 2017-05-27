@@ -9,9 +9,9 @@ var Subject = function() {
     return _observers.pop();
   }
 
-  this.notify = function() {
+  this.notify = function(msg) {
     for(var i=0; i<_observers.length; i++) {
-      _observers[i].update();
+      _observers[i].update(msg);
     }
   }
 
@@ -22,16 +22,25 @@ var Subject = function() {
 }
 
 var Observer = function(name) {
-  this.update = function() {
-    console.log('i am', name, 'I got the message!');
+  this.update = function(msg) {
+    console.log('i am', name, 'and I got the message:', msg);
   }
 }
 
-var a = new Subject();
+var sub = new Subject();
+var a = new Observer('a');
 var b = new Observer('b');
-var c = new Observer('c');
 
-a.attach(b);
-a.attach(c);
-//a.print();
-a.notify();
+sub.attach(a);
+sub.attach(b);
+//sub.print();
+sub.notify('hello');
+
+console.log('');
+
+setTimeout(function() {
+  var c = new Observer('c');
+  sub.detach();
+  sub.attach(c);
+  sub.notify('world');
+}, 1000);

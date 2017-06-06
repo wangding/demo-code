@@ -7,6 +7,7 @@ console.log('today is: ' + today());
 console.log('yesterday is: ' + yesterday());
 console.log('the_day_before_yesterday is: ' + the_day_before_yesterday());
 */
+console.log(new Date().toLocaleDateString());
 var d = new Date();
 
 console.log(d.toUTCString());

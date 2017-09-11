@@ -2,7 +2,6 @@
 if (process.argv.length < 4) { return console.log('Usage: node 00_telnet.js host port'); }
 
 var net = require('net');
-var stream = require('stream');
 
 var host = process.argv[2];
 var port = process.argv[3];
@@ -18,7 +17,6 @@ var socket = net.connect({ host : host, port : port }, function() {
   });
 
   socket.pipe(process.stdout);
-
 });
 
 socket.on('end', function() {

@@ -4,7 +4,6 @@ var fs = require('fs');
 
 server.on('connection', function(socket) {
   console.log('new connection from', socket.remoteAddress);
-  console.log(socket.remoteFamily);
 
   socket.setEncoding('utf8');
 
@@ -15,16 +14,19 @@ server.on('connection', function(socket) {
       data_prev = data;
     }
 
-    var cmd = data_prev.slice(0, data_prev.length-1);
+    var cmd = data_prev.slice(0, data_prev.length-2);
 
     switch(cmd) {
       case 'ls':
-        console.log('ok');
         var files = fs.readdirSync(__dirname);
         files.forEach(function(f) {
-          socket.write(f);
+          socket.write(f + '\r\n');
         });
         break;
+
+      case 'quit':
+        server.close();
+        process.exit(0);
 
       default:
         break;
@@ -34,6 +36,6 @@ server.on('connection', function(socket) {
   socket.once('end', function() {
     console.log(socket.remoteAddress, 'disconnected');
   });
-}).listen({port:8080, host:'192.168.174.144'}, function() {
+}).listen(8080, function() {
   console.log('TCP server is listening on port 8080');
 });

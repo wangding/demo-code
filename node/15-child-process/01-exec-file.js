@@ -2,7 +2,7 @@
 
 var cp = require('child_process');
 
-cp.execFile('ls', ['-l'], function(err, stdout, stderr) {
+cp.execFile('cat', ['01-exec-file.js'], function(err, stdout, stderr) {
   if(err) console.error(err);
   
   console.log(stdout);

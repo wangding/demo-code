@@ -8,6 +8,8 @@ cp.exec('cat messy.txt | sort | uniq', function(err, stdout, stderr) {
 });
 */
 
-cp.exec('echo wang; sleep 1; echo ding', function(err, stdout, stderr) {
+var cmd = process.argv[2];
+
+cp.exec(cmd, function(err, stdout, stderr) {
   console.log(stdout);
 });

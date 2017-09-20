@@ -8,6 +8,7 @@ server.on('connection', function(socket) {
   socket.setEncoding('utf8');
 
   socket.on('data', function(data) {
+    /*
     var cmd = data.slice(0, data.length-2);
     
     console.log(socket.remoteAddress + ':' + socket.remotePort + ' > ' + cmd);
@@ -27,6 +28,8 @@ server.on('connection', function(socket) {
       default:
         break;
     }
+    */
+    console.log(data.length, data);
   });
 
   socket.on('end', function() {

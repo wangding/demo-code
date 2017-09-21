@@ -1,5 +1,5 @@
 #!/usr/bin/node
-if (process.argv.length < 4) { return console.log('Usage: node 00_telnet.js host port'); }
+if (process.argv.length < 4) { return console.log('Usage:\n\t./02-my-telnet.js host port'); }
 
 var net = require('net');
 

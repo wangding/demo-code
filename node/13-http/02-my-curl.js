@@ -1,6 +1,8 @@
 #!/usr/bin/node
 var http = require('http');
 
-http.get('http://sample.wangding.in/web/one-div.html', function(res) {
+var url = process.argv[2];
+
+http.get(url, function(res) {
   res.pipe(process.stdout);
 });

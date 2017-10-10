@@ -20,12 +20,11 @@ var pool = max;
 var count = 0;
 
 function f2() {
-  count++;
   pool--;
   console.log('this is f2, i am callback.\n');
 
   if(count < total) {
-    var task = new LongTimeOperation(count);
+    var task = new LongTimeOperation(count++);
     task.go(f2);
     pool++;
   }
@@ -40,7 +39,7 @@ function f2() {
 function end() { console.log('the end task.'); }
 
 console.time('FLOW-CONTROL');
-for(var i=0; i<max; i++,count++) {
-  var task = new LongTimeOperation(count);
+for(var i=0; i<max; i++) {
+  var task = new LongTimeOperation(count++);
   task.go(f2);
 }

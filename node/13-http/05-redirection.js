@@ -3,7 +3,7 @@
 var http = require('http'),
     url  = require('url');
 
-var addr = process.argv[2] || 'http://sample.wangding.in/web/one-div.html';
+var addr = process.argv[2] || 'http://www.sian.com/';
 
 function opt(addr) {
   var options = url.parse(addr);
@@ -16,7 +16,7 @@ function opt(addr) {
 
 function get(options) {
   http.get(options, function(res) {
-    console.log('\nstatus:', res.statusCode);
+    console.log('status:', res.statusCode);
     console.log('status message:', res.statusMessage);
     console.log('HTTP version:', res.httpVersion);
     console.log('');
@@ -24,10 +24,10 @@ function get(options) {
     console.log(res.headers);
     console.log('');
 
-    res.pipe(process.stdout);
-
     if(res.statusCode < 400 && res.statusCode >= 300) {
       get(opt(res.headers.location));
+    } else {
+      res.pipe(process.stdout);
     }
   });
 }

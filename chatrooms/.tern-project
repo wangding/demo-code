@@ -1,0 +1,10 @@
+{
+  "libs": [],
+  "plugins": {
+    "node": {},
+    "modules": {
+      "modules": "./node_modules/socket.io",
+      "modules": "./node_modules/mime"
+    }
+  }
+}

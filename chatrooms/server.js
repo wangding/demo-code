@@ -1,5 +1,4 @@
 #!/usr/bin/node
-// 02-static-http-server.js
 
 var http = require('http'),
     fs = require('fs'),
@@ -19,17 +18,16 @@ http.createServer(function(req, res) {
 
   fs.stat(fileName, function(err, stat) {
     if(err) {
-      if('ENOENT' === err.code) {
-        send404(res);
-      } else {
-        res.statusCode = 500;
-        res.end(err.message);
-      }
-    } else {
-      //console.log(cache);
-      if(!cache[fileName]) cache[fileName] = fs.readFileSync(fileName); 
-      sendFile(res, fileName, cache[fileName]);
-    }
+      if('ENOENT' === err.code) return send404(res); 
+      
+      res.statusCode = 500;
+      res.end(err.message);
+      return;
+    } 
+    
+    //console.log(cache);
+    if(!cache[fileName]) cache[fileName] = fs.readFileSync(fileName); 
+    sendFile(res, fileName, cache[fileName]);
   });
 }).listen(8080);
 

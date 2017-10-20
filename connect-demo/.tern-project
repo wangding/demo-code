@@ -1,0 +1,9 @@
+{
+  "libs": [],
+  "plugins": {
+    "node": {},
+    "modules": {
+      "modules": "./node_modules/connect/index.js"
+    }
+  }
+}

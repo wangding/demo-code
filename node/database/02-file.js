@@ -1,10 +1,10 @@
 #!/usr/bin/node
-// 01-memory.js
+// 02-file.js
 
 var http = require('http'),
     fs = require('fs');
 
-var items = [];
+var items = loadData();
 
 http.createServer(function(req, res) {
   console.log(req.headers);
@@ -32,9 +32,24 @@ http.createServer(function(req, res) {
   }
 }).listen(8080);
 
+process.on('SIGINT', function(code) {
+  console.log(items);
+  fs.writeFileSync('./data.txt', JSON.stringify(items));
+  process.exit();
+});
+
+function loadData() {
+  try {
+    return JSON.parse(fs.readFileSync('./data.txt', 'utf8'));
+  } catch (e) { return []; }
+}
+
+// maybe save items every 10 seconds is ok
+
 function get(req, res) {
-  var body = JSON.stringify(items);
+  var body = JSON.stringify(items) || '';
   
+  console.log(body);
   res.writeHead(200, {
     'Content-Length': Buffer.byteLength(body),
     'Content-Type': 'text/plain; charset="utf-8"',

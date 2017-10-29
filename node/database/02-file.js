@@ -64,8 +64,10 @@ function insert(req, res) {
   req.setEncoding('utf8');
  
   req.on('data', function(data) { item += data; });
-  req.on('end', function() { items.push(item);  });
-  res.end();
+  req.on('end', function() { 
+    items.push(item);
+    res.end();
+  });
 }
 
 function del(req, res) {

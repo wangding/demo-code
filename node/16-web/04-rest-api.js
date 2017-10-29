@@ -52,9 +52,9 @@ function insert(req, res) {
  
   req.on('end', function() {
     items.push(item);
+    res.end();
   });
 
-  res.end();
 }
 
 function del(req, res) {

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SPA Chapter 1 demo</title>
+  <style>
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #777;
+    } 
+    #spa {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      bottom: 8px;
+      right: 8px;
+      border-radius: 8px 8px 0 8px;
+      background-color: #777;
+    }
+    .spa-slider {
+      position: absolute;
+      bottom: 0;
+      right: 2px;
+      width: 300px;
+      height: 16px;
+      border-radius: 8px 0 0 0;
+      background-color: #f00;
+    }
+  </style>
+  <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+    var spa = (function($){
+      var configMap = {
+          template_html: '<div class="spa-slider"><\/div>'
+      };
+      
+      var initModule = function($container) {
+        $container.html(configMap.template_html);
+      };
+      
+      return { initModule: initModule };
+    }(jQuery));
+
+    $(document).ready(function(){ spa.initModule($('#spa')); });
+  </script>
+</head>
+<body>
+  <div id="spa">  </div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 
-var reg = /^(\s*\|)|\s+/
+var reg = /^\s*\|/
 
 test(
     '去掉左侧第一个表格线',

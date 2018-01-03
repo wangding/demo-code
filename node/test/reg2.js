@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 
-var reg = /(\|$)|(\s+$)/
+var reg = /\|\s*$/
 
 test(
     '去掉右侧第一个表格线',
@@ -12,7 +12,7 @@ test(
 
 test(
     '去掉右侧第一个表格线',
-    '| abc |  |',
+    '| abc |  |  ',
     '| abc |  ',
     '| abc |  |'.replace(reg, '')
     )

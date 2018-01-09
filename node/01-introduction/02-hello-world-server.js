@@ -1,9 +1,9 @@
 #!/usr/bin/node
 // 02-hello-world-server.js
 
-var http = require('http');
+const http = require('http');
 
-http.createServer(function(req, res) {
+http.createServer((req, res) => {
   console.log(req.headers);
   console.log(req.url);
   res.end('Hello World!');

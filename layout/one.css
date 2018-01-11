@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 0
+}
+
+.main {
+  width: 800px;
+  height: 500px;
+  background: green;
+  margin: 0 auto;
+}
+
+.top {
+  height: 100px;
+  background: blue;
+}
+
+.foot {
+  width: 800px;
+  height: 100px;
+  background: red;
+  margin: 0 auto;
+}

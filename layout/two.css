@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.left {
+  width: 50%;
+  height: 500px;
+  float: left;
+  background: blue;
+}
+
+.right {
+  width: 50%;
+  height: 500px;
+  float: right;
+  background: red;
+}
+
+.main {
+  width: 800px;
+  margin: 0 auto;
+}

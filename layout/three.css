@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.left {
+  width: 200px;
+  height: 500px;
+  float: left;
+  background: red;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.middle {
+  height: 500px;
+  background: green;
+  margin: 0 310px 0 210px;
+}
+
+.right {
+  width: 300px;
+  height: 500px;
+  float: right;
+  background: blue;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

@@ -1,2 +1,3 @@
-var foo = require('./foo.js')
-console.log(foo(4))
+const sum = require('./sum.js');
+
+console.log(sum(1000, 200));

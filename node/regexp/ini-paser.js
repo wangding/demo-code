@@ -1,8 +1,10 @@
+function splitLine(str) {
+  return str.split(/\r?\n/);
+}
+
 var fs = require('fs');
 
-console.log(fs.readFileSync('./tox.ini'));
+var input = fs.readFileSync('./tox.ini').toString('utf8');
+console.log(splitLine(input));
 
-function splitLine(str) {
-  return str.splite(/\r?\n/);
-}
 

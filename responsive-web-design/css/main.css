@@ -1,0 +1,9 @@
+.test {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .test {
+    display: none;
+  }
+}

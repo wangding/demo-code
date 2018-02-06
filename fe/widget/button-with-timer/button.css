@@ -1,0 +1,7 @@
+.box {
+  display: block;
+  margin: 50px auto;
+  width: 200px;
+  height: 100px;
+  font-size: 2em;
+}

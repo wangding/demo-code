@@ -4,6 +4,14 @@ requirejs.config({
   }
 });
 
-requirejs(['jquery', 'mod1'], function($, m) {
-  $('body').append('<h1>' + m.a + '</h1>');
+require(['jquery'], function($) {
+  $(function() {
+    var $btnDisplay = $('.main input');
+
+    $btnDisplay.click(function(e) {
+      require(['mod1'], function(m) {
+        alert(m.a);
+      });
+    });
+  });
 });

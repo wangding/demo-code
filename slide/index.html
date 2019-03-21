@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>板书轮播</title>
+  <link rel="stylesheet" href="http://cdn.dowebok.com/77/css/jquery.fullPage.css">
+  <style>
+    .section { text-align: center; font: 50px "Microsoft Yahei"; color: #fff; }
+  </style>
+</head>
+<body>
+<div id="dowebok">
+<div class="section">
+  <img src="./images/2019-03-19-01.png" alt="" height="95%">
+</div>
+<div class="section">
+  <img src="./images/2019-03-20-01.png" alt="" height="95%">
+</div>
+<div class="section">
+  <img src="./images/2019-03-20-02.png" alt="" height="95%">
+</div>
+<div class="section">
+  <img src="./images/2019-03-19-02.png" alt="" height="95%">
+</div>
+</div>
+
+<script src="http://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://cdn.dowebok.com/77/js/jquery.fullPage.min.js"></script>
+<script>
+$(function(){
+  $('#dowebok').fullpage({
+    continuousVertical: true
+  });
+
+  $('#dowebok').click(function(){
+    $.fn.fullpage.moveSectionDown();
+
+  });
+});
+</script>
+</body>
+</html>

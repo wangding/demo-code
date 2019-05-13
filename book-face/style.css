@@ -1,0 +1,71 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.page {
+  margin: 20px auto;
+  width: 800px;
+}
+
+.page-main {
+  background-image: url(./background-pic2.png);
+  color: white;
+  height: 600px;
+}
+
+.page-footer {
+  background-image: url(./background-pic1.png);
+  color: white;
+  height: 400px;
+  position: relative;
+}
+
+img {
+  height: 60px;
+  width: 60px;
+}
+
+.left-img {
+  margin-left: 60px;
+  margin-right: 10px;
+}
+
+.logo {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+p {
+  margin-bottom: 8px;
+  margin-left: 10px;
+  margin-top: 8px;
+}
+
+.main {
+  margin-right: 40px;
+  margin-top: 180px;
+  text-align: right;
+}
+
+h1 {
+  font-size: 60px;
+  margin-bottom: 0;
+}
+
+h6 {
+  font-size: 30px;
+  margin-top: 0;
+}
+
+.page-footer>p {
+  bottom: 20px;
+  font-family: "隶书";
+  font-size: 20px;
+  margin-right: 40px;
+  position: absolute;
+  right: 0;
+  text-align: right;
+}

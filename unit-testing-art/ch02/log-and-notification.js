@@ -7,7 +7,14 @@
 function isValidLogFile(fileName) {
   if(fileName === null || fileName === '') throw new Error('file name empty!');
 
-  return /.*\.slf$/.test(fileName);
+  return (lastValid = /.*\.slf$/.test(fileName));
 }
 
-module.exports = isValidLogFile;
+var lastValid = false;
+
+function wasLastFileNameValid() {
+  return lastValid;
+}
+
+module.exports.isValidLogFile = isValidLogFile;
+module.exports.wasLastFileNameValid = wasLastFileNameValid;

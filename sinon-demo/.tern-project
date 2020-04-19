@@ -1,0 +1,10 @@
+{
+  "libs": ["browser", "jquery"],
+  "plugins": {
+    "node": {},
+    "modules": {
+      "sinon": "./node_modules/sinon/lib/sinon.js",
+      "chai": "./node_modules/chai/chai.js"
+    }
+  }
+}

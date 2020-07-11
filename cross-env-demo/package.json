@@ -1,0 +1,19 @@
+{
+  "name": "test-cross-env",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "parentScript": "cross-env GREET=\"Joe\" npm run childScript",
+    "childScript": "cross-env-shell \"echo Hello $GREET\"",
+    "test": "cross-env NODE_ENV=test node env.js",
+    "dev": "cross-env NODE_ENV=dev node env.js",
+    "prod": "cross-env NODE_ENV=prod node env.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.2"
+  }
+}

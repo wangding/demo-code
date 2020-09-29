@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+
+const axios = require('axios'),
+      fs    = require('fs'),
+      url   = require('url'),
+      log   = console.log;
+
+async function getKey() {
+  const pageURL = 'http://shuting5.com/js/player/play.php?url=VKWMTYwMTI3MzU0Mj15b3VzaGVuZy8yOTYwNi9wbGF5XzI5NjA2XzQ5Ny5odG1WS1c=&from=china&s=/py/100542-0-496.html&x=/py/100542-0-498.html'
+  res = await axios.get(pageURL);
+  res = res.data;
+
+  let pos = res.search('mp3:') + 5;
+  res = res.slice(pos, res.length);
+  pos = res.search('"');
+
+  let mp3URL = res.slice(0, pos);
+  return url.parse(mp3URL).query;
+}
+
+async function getMP3() {
+  const baseURL = 'http://t33.tingchina.com/yousheng/武侠小说/紫阳/';
+
+  let num = 0;
+  let key = await getKey();
+
+  for(let i=123; i<504; i++, num++) {
+  //for(let i=123; i<125; i++, num++) {
+    let mp3URL = encodeURI(`${baseURL}${i}.mp3?${key}`);
+
+    log(`${num} : ${mp3URL}`);
+
+    if(num === 20) {
+      num = 0;
+      key = await getKey();
+    }
+
+    res = await axios({
+      method: 'get',
+      url: mp3URL,
+      headers: {
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'
+      },
+      responseType: 'stream'
+    });
+
+    res.data.pipe(fs.createWriteStream(`./mp3/${i}.mp3`))
+  }
+}
+
+getMP3();

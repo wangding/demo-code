@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>点击 div 颜色</title>
+  <style>
+    .item {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      border: 1px solid green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="page-header">点击切换颜色</h2>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+  <script>
+    let items = document.getElementsByClassName('item');
+    for(let i=0; i<items.length; i++) {
+      items[i].onclick = function() {
+        this.style.backgroundColor = 'pink';
+      };
+    }
+  </script>
+</body>
+</html>

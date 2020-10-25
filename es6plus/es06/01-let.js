@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+var log = console.log;
+
 /* es6 let */
 
 let a;
@@ -14,24 +16,24 @@ let star = '罗志祥';
 // 2. 块级作用域，全局作用域，函数作用域，eval 作用域
 // 变量只在代码块内有效，出了代码块就无效了，包括：if, else, while, for，等代码块
 for(let i=0; i<4; i++) {
-  console.log(i);
+  log(i);
 }
-//console.log(i);    // ReferenceError: i is not defined
+//log(i);    // ReferenceError: i is not defined
 
 //{
 //  let girl = '周扬青';
 //}
-//console.log(girl); // ReferenceError: girl is not defined
+//log(girl); // ReferenceError: girl is not defined
 
 // 3. 不存在变量提升
-//console.log(song);
+//log(song);
 //let song = '恋爱达人';
 
 // 4. 不影响作用域链
 {
   let school = 'edu2act';
   function fn() {
-    console.log(school);
+    log(school);
   }
   fn();
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数实战</title>
+  <style>
+    div {
+      width:  200px;
+      height: 200px;
+      background-color: #58a;
+    }
+  </style>
+</head>
+<body>
+  <div id="ad">
+  </div>
+  <script>
+    // 功能 1：点击 div 后颜色变成粉色
+    let ad = document.getElementById('ad');
+    /*
+    ad.onclick = () => {
+      console.log(this);
+      this.style.backgroundColor = 'pink';
+    };
+    */
+    ad.addEventListener('click', function() {
+      setTimeout(() => {
+        console.log(this);
+        this.style.backgroundColor = 'pink';
+      }, 2000);
+    });
+
+    // 功能 2：从数组中返回偶数的元素
+    let arr = [1, 2, 3, 4, 5];
+    let res = arr.filter(item => item % 2 === 0);
+    console.log(res);
+
+    // 总结：箭头函数适合与 this 无关的场合
+  </script>
+</body>
+</html>

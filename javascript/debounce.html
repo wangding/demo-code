@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>防抖（debounce）demo</title>
+</head>
+<body>
+  <button>click me</button>
+  <script>
+    let btn = document.querySelector('button');
+
+    /* 没有防抖
+    btn.onclick = () => {
+      console.log('send request ...');
+    }*/
+
+    // 实现了防抖
+    let timer = null;
+    btn.onclick = () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        console.log('send request ...');
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

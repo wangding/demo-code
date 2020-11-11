@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>节流（throttle）</title>
+</head>
+<body>
+  <button>Click Me</button>
+  <script>
+    let btn = document.querySelector('button');
+
+    /* 没有实现节流
+    btn.onclick = () => {
+      console.log('send request ...');
+    };*/
+
+    let flag = true;
+    btn.onclick = () => {
+      if(flag) {
+        flag = false;
+        console.log('send request ...');
+        setTimeout(() => flag = true, 2000);
+      }
+    }
+  </script>
+</body>
+</html>

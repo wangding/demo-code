@@ -1,9 +1,11 @@
-window.$ = document;
+const q = document.querySelector,
+      $ = q.bind(document);
 
 window.onload = () => {
-  let btnAdd    = $.querySelector('input[value="add"]'),
-      btnRemove = $.querySelector('input[value="remove"]'),
-      div       = $.querySelector('div'),
+  let btnAdd1 = $('.add1'),
+      btnAdd2 = $('.add2'),
+      btnRemove = $('.remove'),
+      div       = $('div'),
       dom       = `
         <form>
           <label>user name:</label>
@@ -16,10 +18,14 @@ window.onload = () => {
           <br>
         </form>`;
 
-	btnAdd.onclick = () => {
-	  div.innerHTML = '';
+  btnAdd1.onclick = () => {
+    div.innerHTML = '';
     div.innerHTML = dom;
-	};
+  };
+
+  btnAdd2.onclick = () => {
+    div.insertAdjacentHTML('beforeend', '<h1>hello world</h1>');
+  };
 
   btnRemove.onclick = () => {
     div.innerHTML = '';

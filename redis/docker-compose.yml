@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  redis-test:
+    container_name: redis
+    image: redis:6-alpine
+    restart: always
+    network_mode: "host"

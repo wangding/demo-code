@@ -1,8 +1,8 @@
 const express = require("express");
-const redis = require("redis");
+const {createClient} = require("redis");
 
 const app = express();
-const redisClient = redis.createClient(6379);
+const redisClient = createClient();
 const MOCK_API = "https://jsonplaceholder.typicode.com/users/";
 
 app.get("/users", (req, res) => {

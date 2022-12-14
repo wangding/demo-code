@@ -1,0 +1,6 @@
+Language    type      released
+Python      general   1991
+Javascript  web       1995
+Java        mobiLe    1995
+Rust        embebded  2010
+Go          backend   2007

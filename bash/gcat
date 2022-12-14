@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if(($# != 1)); then
+  echo "gcat pattern"
+  exit
+fi
+
+
+for file in $1
+do
+  echo -e "\e[42m$file\e[49m"
+  cat $file
+done

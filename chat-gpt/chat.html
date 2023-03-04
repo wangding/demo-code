@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ChatGPT</title>
+</head>
+<body>
+	<h1>ChatGPT API</h1>
+	<p>输入你的问题：</p>
+	<input type="text" id="input">
+	<button onclick="send()">提交</button>
+	<div id="output"></div>
+	
+	<script>
+		function send() {
+			// 获取用户输入的问题
+			let input = document.getElementById("input").value;
+			
+      if(input == '') return;
+
+			// 向 chatGPT API 发送 post 请求
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "https://api.openai.com/v1/chat/completions");
+			xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+			xhr.setRequestHeader("Authorization", "Bearer sk-XX");
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+					// 在页面上显示响应内容
+					document.getElementById("output").innerHTML = xhr.responseText;
+				}
+			};
+			xhr.send(JSON.stringify({ question: input }));
+		}
+	</script>
+</body>
+</html>

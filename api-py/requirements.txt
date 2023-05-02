@@ -1,0 +1,9 @@
+Flask
+langchain
+openai==0.27.0
+tiktoken
+urllib3
+python-decouple
+nltk
+python-magic
+python-dotenv
